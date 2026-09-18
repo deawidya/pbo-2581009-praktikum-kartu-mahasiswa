@@ -11,6 +11,7 @@ public class KartuMahasiswa {
 
         System.out.println("Masukkan Tinggi Badan: ");
         double tinggiBadan = input.nextDouble();
+        input.nextLine();
 
         System.out.println("Masukkan Golongan Darah: ");
         char golonganDarah = input.next().charAt(0);
@@ -20,6 +21,7 @@ public class KartuMahasiswa {
 
         input.nextLine();
 
+        System.out.println("Masukkan Nama: ");
         String namaLengkap=input.nextLine();
 
         System.out.println("===== KARTU MAHASISWA =====");
