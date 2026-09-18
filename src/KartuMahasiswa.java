@@ -1,39 +1,61 @@
 import java.util.Scanner;
+
 public class KartuMahasiswa {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         long nik;
+
         do {
             System.out.print("Masukkan NIK (16 digit): ");
             nik = input.nextLong();
+
             if (String.valueOf(nik).length() != 16) {
                 System.out.print("Peringatan: NIK harus terdiri dari 16 digit!");
-                System.out.println("Silakan masukkan NIK kembali.\n");
+                System.out.println(" Silakan masukkan NIK kembali.\n");
             }
-        }
-        while (String.valueOf(nik).length() != 16);
+
+        } while (String.valueOf(nik).length() != 16);
+
         input.nextLine();
 
-        System.out.println("Masukkan Umur: ");
-        int umur = input.nextInt();
+        int umur;
+        while (true) {
+            System.out.print("Masukkan Umur: ");
 
-        System.out.println("Masukkan Tinggi Badan: ");
+            try {
+                umur = input.nextInt();
+
+                if (umur > 0) {
+                    break;
+                } else {
+                    System.out.println("Peringatan: Umur harus lebih dari 0!");
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Peringatan: Umur harus berupa angka!");
+                input.nextLine();
+            }
+        }
+
+
+        System.out.print("Masukkan Tinggi Badan: ");
         double tinggiBadan = input.nextDouble();
         input.nextLine();
 
-        System.out.println("Masukkan Golongan Darah: ");
+        System.out.print("Masukkan Golongan Darah: ");
         char golonganDarah = input.next().charAt(0);
 
-        System.out.println("Masukkan Status: ");
+        System.out.print("Masukkan Status: ");
         boolean sudahMenikah = input.nextBoolean();
 
         input.nextLine();
 
-        System.out.println("Masukkan Nama: ");
-        String namaLengkap=input.nextLine();
+        System.out.print("Masukkan Nama: ");
+        String namaLengkap = input.nextLine();
 
-        System.out.println("===== KARTU MAHASISWA =====");
+
+        System.out.println("\n===== KARTU MAHASISWA =====");
         System.out.println("Nama      : " + namaLengkap);
         System.out.println("NIK       : " + nik);
         System.out.println("Umur      : " + umur + " tahun");
@@ -42,6 +64,5 @@ public class KartuMahasiswa {
         System.out.println("Menikah   : " + sudahMenikah);
 
         input.close();
-
     }
 }
