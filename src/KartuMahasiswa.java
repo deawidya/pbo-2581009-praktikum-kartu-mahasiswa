@@ -3,8 +3,17 @@ public class KartuMahasiswa {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Masukkan NIK: ");
-        long nik = input.nextLong();
+        long nik;
+        do {
+            System.out.print("Masukkan NIK (16 digit): ");
+            nik = input.nextLong();
+            if (String.valueOf(nik).length() != 16) {
+                System.out.print("Peringatan: NIK harus terdiri dari 16 digit!");
+                System.out.println("Silakan masukkan NIK kembali.\n");
+            }
+        }
+        while (String.valueOf(nik).length() != 16);
+        input.nextLine();
 
         System.out.println("Masukkan Umur: ");
         int umur = input.nextInt();
